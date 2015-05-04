@@ -70,7 +70,7 @@ public class Recommend {
 		Object prefer1[] = db.loadMovieLensTrain();
 		Object prefer2[] = db.loadMovieLensTest();
 		
-		PrintWriter pw = new PrintWriter(new FileWriter("C:\\Users\\junzai\\Desktop\\1.test"));
+		PrintWriter pw = new PrintWriter(new FileWriter("..\\1.test"));
 		
 		Connection conn = db.getConn();
 		PreparedStatement pst = conn.prepareStatement("truncate result2");

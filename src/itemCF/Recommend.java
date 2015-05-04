@@ -135,7 +135,7 @@ public class Recommend {
 		s1.removeAll(s2);
 		
 		double rating = 0.0;
-		PrintWriter pw = new PrintWriter(new FileWriter("C:\\Users\\junzai\\Desktop\\1.test"));
+		PrintWriter pw = new PrintWriter(new FileWriter("..\\1.test"));
 		//当main函数里只调用一次这个函数的话就需要清空，多个的话不用清空
 //		pst = conn.prepareStatement("truncate result1");
 //		pst.executeUpdate();

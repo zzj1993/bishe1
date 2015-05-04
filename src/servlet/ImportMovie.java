@@ -11,7 +11,7 @@ import java.sql.SQLException;
 public class ImportMovie {
 
 	public static void main(String[] args) throws ClassNotFoundException, SQLException, NumberFormatException, IOException {
-		BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\junzai\\Desktop\\movies.dat"));
+		BufferedReader br = new BufferedReader(new FileReader("..\\movies.dat"));
 		String s;
 		String[] ss;
 		String sql = "insert into movie(id,name,type) values(?,?,?)";
