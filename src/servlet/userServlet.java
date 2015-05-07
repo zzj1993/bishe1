@@ -28,7 +28,8 @@ public class userServlet extends HttpServlet {
 		boolean ok = checkLogin(Integer.parseInt(userid));
 		if(ok){
 			request.getSession().setAttribute("user", userid);
-			request.getRequestDispatcher("main.jsp").forward(request, response);
+//			request.getRequestDispatcher("main.jsp").forward(request, response);
+			request.getRequestDispatcher("more.jsp").forward(request, response);
 		}
 	}
 	public boolean checkLogin(int userid) {
