@@ -8,13 +8,15 @@
 .hide{display:none;}
 .show{display:block;}
 
+.welcomUser{color:red;}
 /*main*/
-.showBox{width:1000px;height:700px; margin:10px auto; border:#CCC solid 1px;}
-.movieList{float:left;margin-right:15px;}
-.moretable td{width:200px;height:130px;}
+.TList{width:1000px; height:650px;}
+.showBox{width:1000px; margin:10px auto; border:#CCC solid 1px;}
+.movieList{float:left;width:333px;}
 
-
-
+.moretable td{width:250px;height:200px;text-align: center;vertical-align:text-top;}
+.moretable img{ width:190px;height:150px;}
+.moretable h3{font-size:14px;}
 
 /*topBar*/
 .topBar{height:31px; background-color:#6c6c6c;filter:alpha(opacity=50);opacity:0.5; line-height:31px;color:#FFF;}
@@ -112,18 +114,17 @@ table.hovertable td {
 /*banner部分*/
 .banner{margin-bottom:15px;}
 .banner_bar{float:right; position:relative; overflow:hidden;}
+.banner_big,
+.banner_big  img{width:810px; height:318px;}
+
+
+
 .imgBox{position:absolute; left:0; top:0;}
 .imgBox li{float:left;}
 .imgBox img{display:block;}
-.imgNum{position:absolute; left:0; bottom:15px; width:100%; text-align:center;}
-.imgNum a{width:20px; height:5px; overflow:hidden; background-color:#FFF; display:inline-block; margin:0 3px;}
-.imgNum .active{background-color:#FF7700;}
-.banner_big,
-.banner_big  img{width:810px; height:326px;}
-.banner_big .imgBox{width:1620px; height:326px;}
-.banner_sm,
-.banner_sm img{width:190px; height:400px;}
-.banner_sm .imgBox{width:380px; height:400px;}
+
+
+
 /*底部*/
 .footer{text-align:center; background-color:#D4D4D4; line-height:24px; padding:50px 0;}
 .footer i{font-style:normal; margin:0 5px; }

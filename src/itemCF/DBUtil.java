@@ -8,9 +8,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import java.util.TreeMap;
 /**
  * 100用户，1000电影
@@ -131,36 +133,27 @@ public class DBUtil {
 		return a;
 	}
 	
-	//得到一个人的观看记录
-	public List<String> get1MovieRating(int userid) throws ClassNotFoundException, SQLException{
-//		Map<Integer,Double> m = new TreeMap<Integer,Double>();
-		List<String> list = new ArrayList<String>();
+	//得到一个人的观看记录,movie-path
+	public Map<String,String> get1MovieRating(int userid) throws ClassNotFoundException, SQLException{
+		Map<String,String> m = new LinkedHashMap<String,String>();
+		String path = "images/more/";
+//		List<String> list = new ArrayList<String>();
 		Connection conn = getConn();
-		PreparedStatement pst = conn.prepareStatement("select name from movie a,base b where a.id=b.movieid and userid=?");//select movieid,score from base1 where userid=?
+		PreparedStatement pst = conn.prepareStatement("select name from movie a,base b where a.id=b.movieid and userid=? order by timestamp desc");//select movieid,score from base1 where userid=?
 		pst.setInt(1, userid);
 		ResultSet rs = pst.executeQuery();
 		String movie;
-		int movieid;
-		double rating;
-		int totalcount=0;//数据总数
-		int pagesize = 20;//每页数据量
-		int pagecount;
+		
+		Random rand = new Random();
+
 		while(rs.next()){
 //			movieid = rs.getInt(1);
 //			rating = rs.getDouble(2);
 //			m.put(movieid, rating);
 			movie = rs.getString(1);
-			list.add(movie);
-			totalcount += 1;//1.确定数据的数量
-		}
-		
-		//2.确定显示的页数
-		if(totalcount%pagesize==0){
-			pagecount = totalcount/pagesize;
-		}else if(totalcount%pagesize>0){
-			pagecount = totalcount/pagesize+1;
-		}else{
-			pagecount = 0;
+			m.put(movie, path+"more"+String.valueOf(rand.nextInt(4)+1)+".jpg");
+//			list.add(movie);
+
 		}
 		
 		if(rs!=null){
@@ -172,6 +165,6 @@ public class DBUtil {
 		if(conn!=null){
 			conn.close();
 		}
-		return list;
+		return m;
 	}
 }

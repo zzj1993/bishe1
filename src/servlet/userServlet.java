@@ -1,18 +1,16 @@
 package servlet;
 
-import itemCF.DBUtil;
-
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import common0503.DBUtil;
 
 public class userServlet extends HttpServlet {
 	/**
@@ -28,14 +26,13 @@ public class userServlet extends HttpServlet {
 		boolean ok = checkLogin(Integer.parseInt(userid));
 		if(ok){
 			request.getSession().setAttribute("user", userid);
-//			request.getRequestDispatcher("main.jsp").forward(request, response);
-			request.getRequestDispatcher("more.jsp").forward(request, response);
+			request.getRequestDispatcher("main.jsp").forward(request, response);
+//			request.getRequestDispatcher("more.jsp").forward(request, response);
 		}
 	}
 	public boolean checkLogin(int userid) {
 		try {
-			DBUtil db = new DBUtil();
-			Connection conn = db.getConn();
+			Connection conn = DBUtil.getConn();
 			PreparedStatement pst = conn.prepareStatement("select * from base1 where userid=?");
 			pst.setInt(1, userid);
 			ResultSet rs = pst.executeQuery();

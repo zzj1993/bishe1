@@ -67,8 +67,7 @@ public class ItemMain {
 	}
 	
 	public List<String> recommend(int userid) throws ClassNotFoundException, SQLException, IOException{
-		List<String> list = new ArrayList<String>();
-		
+		List<String> list = new ArrayList<String>();		
 		DBUtil db = new DBUtil();
 		Connection conn = db.getConn();
 		PreparedStatement pst = conn.prepareStatement("truncate result1");
