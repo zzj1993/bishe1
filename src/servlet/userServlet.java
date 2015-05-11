@@ -21,8 +21,8 @@ public class userServlet extends HttpServlet {
 		request.setCharacterEncoding("utf8");
 		response.setCharacterEncoding("utf8");
 		
-		String userid = request.getParameter("userID");
-		String pwd = request.getParameter("userPwd");
+		String userid = request.getParameter("username");
+		String pwd = request.getParameter("password");
 		boolean ok = checkLogin(Integer.parseInt(userid));
 		if(ok){
 			request.getSession().setAttribute("user", userid);

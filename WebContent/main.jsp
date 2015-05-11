@@ -3,8 +3,8 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="UTF-8"%>
 <%
-//	int userid = Integer.parseInt(session.getAttribute("user").toString());
-	int userid = 1;
+	int userid = Integer.parseInt(session.getAttribute("user").toString());
+//	int userid = 1;
 	Map<String,String> map=null;
 	Map<String,String> map1=null;
 	Map<String,String> map2=null;
@@ -24,9 +24,10 @@
 <title>success</title>
 <link type="text/css" rel="stylesheet" href="css/reset.css">
 <link type="text/css" rel="stylesheet" href="css/main.css">
+
 <link type="text/css" rel="stylesheet" href="css/jquery.slideBox.css"/>
 <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
-<script type="text/javascript" src="js/jquery.slideBox.min.js"></script>
+<script type="text/javascript" src="js/jquery.slideBox.js"></script>
 
 <link rel="stylesheet" type="text/css" href="template/ue-content/templates/images/ue_grid.css" />
 <link rel="stylesheet" type="text/css" href="template/ue-content/templates/images/style.css" />
@@ -45,119 +46,56 @@ jQuery(function($){
 		clickBarRadius : 10
 	});
 });
-function login(){
-	location.href="login.html";
-}
-function register(){
-	location.href="register.html";
-}
 </script>
 </head>
 
 <body>
-<div class="headerBar">
-	<div class="header">
-		<div class="comWidth">
-			<div class="login fr">
-				<div class="loginmenu">
-					<a title="登录或注册"></a>
-				</div>
-					<ul>
-        				<li class="openlogin"><a href="http://www.jq-school.com/" onclick="return false;">登录</a></li>
-        				<li class="reg"><a href="http://www.jq-school.com/" onclick="return false;">注册</a></li>
-      				</ul>
-			</div>
-		</div>
+<div class="headBar">
+	<div class=" comWidth">
+	<div class="fl">
+		<h3 class="welcome_title">movieRec</h3>
 	</div>
-	<div class="logoBar red_logo">
-		<div class="comWidth">			
-			<h3 class="welcome_title">movieRec</h3>
-		</div>
+	<div class="nav fl">
+		<span>导航</span>
 	</div>
-		
-	<div class="navBox">
-		<div class="comWidth clearfix">
-			<div class="shopClass fl">
-				<h3>navigation</h3>
-				<div class="shopClass_show">
-					
-					<table>
-						<tr class="hang">
-							<td><a href="#">Animation</a></td>
-							<td><a href="#">Children's</a></td>
-						</tr>
-						<tr class="hang">
-							<td><a href="#">Comedy</a></td>
-							<td><a href="#">Adventure</a></td>
-						</tr>
-						<tr class="hang">
-							<td><a href="#">Fantasy</a></td>
-							<td><a href="#">Romance</a></td>
-						</tr>
-						<tr class="hang">
-							<td><a href="#">Drama</a></td>
-							<td><a href="#">Action</a></td>
-						</tr>
-						<tr class="hang">
-							<td><a href="#">Thriller</a></td>
-							<td><a href="#">Horror</a></td>
-						</tr>
-						<tr class="hang">
-							<td><a href="#">Crime</a></td>
-							<td><a href="#">Sci-Fi</a></td>
-						</tr>
-						<tr class="hang">
-							<td><a href="#">Documentary</a></td>
-							<td><a href="#">Country</a></td>
-						</tr>
-						<tr class="hang">
-							<td><a href="#">War</a></td>
-							<td><a href="#">Musical</a></td>
-						</tr>
-						<tr class="hang">
-							<td><a href="#">Mystery</a></td>
-							<td><a href="#">Other</a></td>
-						</tr>
-					</table>
-				</div>
-			</div>
-			</div>
-			</div>
-</div>
-<div class="banner comWidth clearfix">
-	<div id="demo" class="banner_bar banner_big slideBox">
-		<ul class="imgBox items">
-			<li><a href="#" title="speed7"><img src="images/banner/speed7.jpg" alt="banner"></a></li>
-			<li><a href="#" title="fuchou2"><img src="images/banner/fuchou2.jpg" alt="banner"></a></li>
-			<li><a href="#" title="speed7"><img src="images/banner/speed7.jpg" alt="banner"></a></li>
-			<li><a href="#" title="fuchou2"><img src="images/banner/fuchou2.jpg" alt="banner"></a></li>
-			<li><a href="#" title="speed7"><img src="images/banner/speed7.jpg" alt="banner"></a></li>
-		</ul>
+	<div class="search_box fl">
+		<input type="text" class="search_text fl">
+		<input type="button" value="搜 索" class="search_btn fr">
+	</div>
+	<div class="user fl">
+		用户<%=userid %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
+	</div>			
 	</div>
+</div>
+
+<div class="imgBox comWidth">
+		<ul>
+			<li><a href="#" title="speed7"><img src="images/banner/speed7.jpg" alt="speed7"></a></li>
+		</ul>
 </div>
 <div class="TList comWidth">
 	<div class="movieList">
 		<table class="hovertable"> 
-			<tr><th>history</th></tr>
+			<tr><th>历史记录</th></tr>
 			<%int i=1;%>
 			<%for(String movie:map.keySet()){
 				if(i<=19){
 			%>						
-			<tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
+			<tr onmouseover="this.style.backgroundColor='#fff';" onmouseout="this.style.backgroundColor='#c9cccd';">
 				<td><a href="#"><%=movie%></a></td>
 			</tr> 
 			<%i++;}else{break;}}%>
 			<tr>
-				<td><a href="more.jsp">查看更多>></a></td>
+				<td><a href="more.jsp" target="_blank">查看更多>></a></td>
 			</tr>					 
 		</table>	
 	</div>
 	<div class="movieList">
 		<table class="hovertable"> 
-			<tr><th>guess you like</th></tr>
+			<tr><th>猜你喜欢</th></tr>
 			<%for(String movie:map1.keySet()){%>						
-			<tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
+			<tr onmouseover="this.style.backgroundColor='#fff';" onmouseout="this.style.backgroundColor='#c9cccd';">
 				<td><a href="#"><%=movie%></a></td>
 			</tr> 
 			<%}%>						 
@@ -165,9 +103,9 @@ function register(){
 	</div>
 	<div class="movieList">
 		<table class="hovertable"> 
-			<tr><th>others also see</th></tr>
+			<tr><th>其他人还看了</th></tr>
 			<%for(String movie:map2.keySet()){%>						
-			<tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
+			<tr onmouseover="this.style.backgroundColor='#fff';" onmouseout="this.style.backgroundColor='#c9cccd';">
 				<td><a href="#"><%=movie%></a></td>
 			</tr> 
 			<%}%>						 
@@ -184,66 +122,5 @@ function register(){
 </div>
 
 
-
-<div id="loginalert">
-  <div class="pd20 loginpd">
-    <h3><i class="closealert fr"></i>
-      <div class="clear"></div>
-    </h3>
-    <div class="loginwrap">
-      <div class="loginh">
-        <div class="fl">会员登录</div>
-        <div class="fr">还没有账号<a id="sigup_now" href="http://www.jq-school.com/" onclick="return false;">立即注册</a></div>
-        <div class="clear"></div>
-      </div>
-      <h3><span>邮箱登录</span><span class="login_warning">用户名或密码错误</span>
-        <div class="clear"></div>
-      </h3>
-      <div class="clear"></div>
-      <form action="" method="post" id="login_form">
-        <div class="logininput">
-          <input type="text" name="username" class="loginusername" value="邮箱/用户名" />
-          <input type="text" class="loginuserpasswordt" value="密码" />
-          <input type="password" name="password" class="loginuserpasswordp" style="display:none" />
-        </div>
-        <div class="loginbtn">
-          <div class="loginsubmit fl">
-            <input type="submit" value="登录" />
-            <div class="loginsubmiting">
-              <div class="loginsubmiting_inner"></div>
-            </div>
-          </div>
-          <div class="logcheckbox fl">
-            <input id="bcdl" type="checkbox" checked="true" />
-            保持登录</div>
-          <div class="fr"><a href="http://www.jq-school.com/">忘记密码?</a></div>
-          <div class="clear"></div>
-        </div>
-      </form>
-    </div>
-  </div>
-  <div class="thirdlogin">
-    <div class="pd50">
-      <h4>用第三方帐号直接登录</h4>
-      <ul>
-        <li id="sinal"><a href="http://weibo.com/jqueryschool">微博账号登录</a></li>
-        <li id="qql"><a href="http://t.qq.com/jqueryschool">QQ账号登录</a></li>
-        <div class="clear"></div>
-      </ul>
-      <div class="clear"></div>
-    </div>
-  </div>
-</div>
-<div id="reg_setp">
-  <div class="back_setp">返回</div>
-  <div class="blogo"></div>
-  <div id="setp_quicklogin">
-    <h3>您可以选择以下第三方帐号直接登录jq-school，一分钟完成注册</h3>
-    <ul class="quicklogin_socical">
-      <li class="quicklogin_socical_weibo"><a href="http://www.jq-school.com/">微博帐号注册</a></li>
-      <li class="quicklogin_socical_qq"><a href="http://www.jq-school.com/">QQ帐号注册</a></li>
-    </ul>
-  </div>
-</div>
 </body>
 </html>
